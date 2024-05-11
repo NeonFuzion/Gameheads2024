@@ -59,6 +59,8 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider col)
     {
+        if (!col.gameObject.name.Equals("Killbox")) return;
+        Debug.Log(col.gameObject.name);
         transform.position = Vector3.up * 1.5f;
         rb.velocity = Vector3.zero;
     }

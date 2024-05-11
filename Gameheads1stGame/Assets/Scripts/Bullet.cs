@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     {
         curDur = 0;
         rb = GetComponent<Rigidbody>();
-        rb.AddForce(-transform.forward * speed, ForceMode.Impulse);
+        rb.AddForce(transform.forward * speed, ForceMode.Impulse);
     }
 
     // Update is called once per frame
@@ -23,5 +23,10 @@ public class Bullet : MonoBehaviour
     {
         curDur += Time.deltaTime;
         if (curDur > duration) Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(gameObject);
     }
 }
